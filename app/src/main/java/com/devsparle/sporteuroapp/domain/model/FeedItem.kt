@@ -11,6 +11,7 @@ sealed class FeedItem {
         val author: String = "",
         val sport: Sport = Sport(),
         val date: Double = 0.0,
+        val teaser : String = "",
         val humanTimeAgo: String = ""
     ) : FeedItem(), Parcelable
 

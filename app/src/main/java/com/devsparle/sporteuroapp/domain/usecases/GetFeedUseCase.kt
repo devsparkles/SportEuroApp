@@ -4,15 +4,14 @@ import com.devsparle.sporteuroapp.domain.model.FeedItem
 import com.devsparle.sporteuroapp.domain.repository.remote.RemoteFeedRepository
 import com.devsparle.sporteuroapp.utils.safeLet
 import javax.inject.Inject
-
+// respecting clean architecture all the logic exist
+// in one place that contain no Android code and can be easily tested
 class GetFeedUseCase @Inject constructor(private val remoteFeedRepository: RemoteFeedRepository) {
 
 
     suspend operator fun invoke(): MutableList<FeedItem> {
         val feed = remoteFeedRepository.getFeed()
         if (feed.isNotAnError()) {
-
-
             val s = feed.value()?.stories?.sortedByDescending { it.date }
             val v = feed.value()?.videos?.sortedByDescending { it.date }
             val re = safeLet(s, v) { s, v ->

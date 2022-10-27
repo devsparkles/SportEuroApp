@@ -2,6 +2,7 @@ package com.devsparle.sporteuroapp.utils
 
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
+import com.devsparle.sporteuroapp.utils.Screen.FullVideo.videoUrlArg
 
 
 sealed class Screen(val name: String, val route: String) {
@@ -13,7 +14,9 @@ sealed class Screen(val name: String, val route: String) {
     object Detail : Screen(
         name = "Detail",
         route = "detail"
-    )
+    ) {
+        const val backStackEntryStory = "story"
+    }
 
     object FullVideo : Screen(
         name = "FullVideo",

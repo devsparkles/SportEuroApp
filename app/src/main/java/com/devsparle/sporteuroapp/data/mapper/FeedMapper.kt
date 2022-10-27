@@ -40,6 +40,7 @@ fun StoryDto.toDomain(): FeedItem.Story {
         title = this.title,
         author = this.author,
         date = this.date,
+        teaser =  this.teaser,
         sport = this.sport.toDomain(),
         humanTimeAgo = ConvertUtils.getPrettyTime(this.date)
     )

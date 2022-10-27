@@ -5,6 +5,8 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.devsparle.sporteuroapp.domain.model.FeedItem
+import com.devsparle.sporteuroapp.presentation.screens.feed_detail.components.Details
 import com.devsparle.sporteuroapp.presentation.screens.feed_home.components.FeedScreen
 import com.devsparle.sporteuroapp.presentation.screens.videofullscreen.VideoFullScreen
 import com.devsparle.sporteuroapp.utils.Screen
@@ -23,6 +25,10 @@ fun ScreenNavHost(
         ) {
             FeedScreen(
                 onStoryClicked = { story ->
+                    navController.currentBackStackEntry?.savedStateHandle?.set(
+                        key = Screen.Detail.backStackEntryStory,
+                        value = story
+                    )
                     navController.navigateSingleTopTo(Screen.Detail.route)
                 },
                 onVideoClicked = { url ->
@@ -35,18 +41,24 @@ fun ScreenNavHost(
         composable(
             route = Screen.Detail.route
         ) {
-
+            val story =
+                navController.previousBackStackEntry?.savedStateHandle?.get<FeedItem.Story>(Screen.Detail.backStackEntryStory)
+            story?.let {
+                Details(story = story) {
+                    navController.navigateUp()
+                }
+            }
 
         }
         // video screen is there to display video in full screen
         composable(
             route = Screen.FullVideo.routeWithArgs,
             arguments = Screen.FullVideo.arguments
-        ) {navBackStackEntry ->
+        ) { navBackStackEntry ->
             val videoUrl =
                 navBackStackEntry.arguments?.getString(Screen.FullVideo.videoUrlArg, "")
             if (videoUrl != null) {
-                VideoFullScreen(url= videoUrl)
+                VideoFullScreen(url = videoUrl)
             }
         }
 
