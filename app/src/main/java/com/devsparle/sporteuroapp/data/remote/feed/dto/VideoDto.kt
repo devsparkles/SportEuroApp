@@ -5,7 +5,7 @@ data class VideoDto(
     val title: String,
     val thumb: String,
     val url: String,
-    val date: Float,
+    val date: Double,
     val sport: SportDto,
     val views: Long
 )

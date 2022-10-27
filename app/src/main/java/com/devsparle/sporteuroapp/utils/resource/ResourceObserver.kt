@@ -1,6 +1,5 @@
 package com.devsparle.sporteuroapp.utils.resource
 
-import android.util.Log
 import androidx.lifecycle.Observer
 import com.devsparle.sporteuroapp.utils.LogApp
 

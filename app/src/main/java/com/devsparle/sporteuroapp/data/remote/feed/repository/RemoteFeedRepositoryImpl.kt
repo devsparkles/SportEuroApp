@@ -16,7 +16,7 @@ class RemoteFeedRepositoryImpl(private val feedService: FeedService) : RemoteFee
             // and call another service that could talk to another endpoint on another server
             // but for now we will just deliver the data
             return response.toDomain()
-        }catch (e:Exception){
+        } catch (e: Exception) {
             // there is already a resource error handling inside the Resource class so that code appears to not be useful
             // it is here in case  some code done after the first call is done directly with the suspend
             // and fail that way we have a wrapper over all backend call to handle that case

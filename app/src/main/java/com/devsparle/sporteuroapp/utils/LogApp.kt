@@ -4,10 +4,11 @@ import timber.log.Timber
 
 object LogApp {
 
-    fun d(text:String?){
+    fun d(text: String?) {
         Timber.d(text)
     }
-    fun e(text:String?){
+
+    fun e(text: String?) {
         Timber.e(text)
     }
 }

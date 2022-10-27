@@ -8,7 +8,7 @@ import timber.log.Timber
 object TimberConfiguration {
 
 
-    fun configure(){
+    fun configure() {
         if (BuildConfig.DEBUG) {
             Timber.plant(object : Timber.DebugTree() {
                 override fun createStackElementTag(element: StackTraceElement): String? {
@@ -28,7 +28,7 @@ object TimberConfiguration {
 
     class ReleaseTree : @NotNull Timber.Tree() {
         override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
-            if (priority == Log.ERROR || priority == Log.WARN){
+            if (priority == Log.ERROR || priority == Log.WARN) {
                 //SEND ERROR REPORTS TO YOUR Crashlytics for example
             }
         }

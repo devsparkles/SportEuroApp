@@ -10,3 +10,4 @@ val graySurface = Color(0xFF202124)
 
 
 val DarkBlue = Color(0xFF0D2E66)
+val GreyLight = Color(0xFF999999)

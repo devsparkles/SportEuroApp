@@ -6,8 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.common.Player
 import com.devsparle.sporteuroapp.di.annotations.DefaultDispatcher
+import com.devsparle.sporteuroapp.di.annotations.IoDispatcher
 import com.devsparle.sporteuroapp.domain.model.FeedItem
-import com.devsparle.sporteuroapp.domain.usecases.GetFeed
+import com.devsparle.sporteuroapp.domain.usecases.GetFeedUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
@@ -15,9 +16,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FeedViewModel @Inject constructor(
-    val getFeed: GetFeed,
+    val getFeedUseCase: GetFeedUseCase,
     val player: Player,
-    @DefaultDispatcher private val defaultDispatcher: CoroutineDispatcher,
+    @IoDispatcher private val ioDispatcher : CoroutineDispatcher,
 ) : ViewModel() {
 
 
@@ -35,9 +36,9 @@ class FeedViewModel @Inject constructor(
     }
 
     private fun retrieveFeed() {
-        viewModelScope.launch(defaultDispatcher) {
+        viewModelScope.launch(ioDispatcher) {
             _loading.postValue(true)
-            val feed = getFeed()
+            val feed = getFeedUseCase()
             _feedItems.postValue(feed)
             _loading.postValue(false)
         }

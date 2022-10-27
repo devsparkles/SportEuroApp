@@ -5,7 +5,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.devsparle.sporteuroapp.ui.components.FeedScreen
+import com.devsparle.sporteuroapp.presentation.components.FeedScreen
 import com.devsparle.sporteuroapp.utils.Screen
 
 @Composable

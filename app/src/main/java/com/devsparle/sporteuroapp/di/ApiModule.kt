@@ -43,9 +43,11 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): FeedService = retrofit.create(FeedService::class.java)
+    fun provideApiService(retrofit: Retrofit): FeedService =
+        retrofit.create(FeedService::class.java)
 
     @Singleton
     @Provides
-    fun providesRepository(apiService: FeedService): RemoteFeedRepository = RemoteFeedRepositoryImpl(apiService)
+    fun providesRepository(apiService: FeedService): RemoteFeedRepository =
+        RemoteFeedRepositoryImpl(apiService)
 }

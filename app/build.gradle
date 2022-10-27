@@ -107,7 +107,8 @@ dependencies {
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 
 
-//    // image processinimplementation("io.coil-kt:coil-compose:2.1.0")
+    // image processing
+    implementation("io.coil-kt:coil-compose:2.1.0")
 
     // alternative image processing
     implementation "com.github.bumptech.glide:glide:$glide_version"

@@ -13,7 +13,7 @@ class SportEuroApp : Application() {
         setupTimber()
     }
 
-    private fun setupTimber(){
+    private fun setupTimber() {
         TimberConfiguration.configure()
     }
 

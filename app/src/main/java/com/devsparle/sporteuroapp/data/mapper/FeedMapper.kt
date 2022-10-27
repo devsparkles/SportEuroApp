@@ -1,10 +1,13 @@
 package com.devsparle.sporteuroapp.data.mapper
 
 import com.devsparle.sporteuroapp.data.remote.feed.dto.FeedDto
+import com.devsparle.sporteuroapp.data.remote.feed.dto.SportDto
 import com.devsparle.sporteuroapp.data.remote.feed.dto.StoryDto
 import com.devsparle.sporteuroapp.data.remote.feed.dto.VideoDto
 import com.devsparle.sporteuroapp.domain.model.Feed
 import com.devsparle.sporteuroapp.domain.model.FeedItem
+import com.devsparle.sporteuroapp.domain.model.Sport
+import com.devsparle.sporteuroapp.utils.ConvertUtils
 import com.devsparle.sporteuroapp.utils.resource.Resource
 
 
@@ -18,22 +21,34 @@ fun Resource<FeedDto?>.toDomain(): Resource<Feed?> {
         is Resource.Loading -> Resource.Loading()
     }
 }
-fun VideoDto?.toDomain(): FeedItem.Video {
+
+fun VideoDto.toDomain(): FeedItem.Video {
     return FeedItem.Video(
-        videoUrl = this?.url,
-        title = this?.title,
-        date = this?.date,
-        thumb = this?.thumb
+        videoUrl = this.url,
+        title = this.title,
+        date = this.date,
+        thumb = this.thumb,
+        sport = this.sport.toDomain(),
+        views = this.views,
+        humanTimeAgo = ConvertUtils.getPrettyTime(this.date)
     )
 }
 
-
-fun StoryDto?.toDomain(): FeedItem.Story {
+fun StoryDto.toDomain(): FeedItem.Story {
     return FeedItem.Story(
-        imageUrl = this?.image,
-        title = this?.title,
-        author = this?.author,
-        date = this?.date
+        imageUrl = this.image,
+        title = this.title,
+        author = this.author,
+        date = this.date,
+        sport = this.sport.toDomain(),
+        humanTimeAgo = ConvertUtils.getPrettyTime(this.date)
+    )
+}
+
+fun SportDto.toDomain(): Sport {
+    return Sport(
+        id = this.id,
+        name = this.name
     )
 }
 

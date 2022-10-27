@@ -11,10 +11,10 @@ sealed class Screen(val name: String, val route: String) {
         name = "Detail",
         route = "detail"
     )
-    
+
     object FullVideo : Screen(
         name = "FullVideo",
         route = "fullvideo"
     )
-    
+
 }

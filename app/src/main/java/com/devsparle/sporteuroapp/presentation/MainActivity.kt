@@ -10,16 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.devsparle.sporteuroapp.presentation.navigation.ScreenNavHost
-import com.devsparle.sporteuroapp.ui.components.FeedScreen
 import com.devsparle.sporteuroapp.ui.theme.SportEuroAppTheme
-import com.devsparle.sporteuroapp.utils.Screen
-
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
