@@ -1,4 +1,4 @@
-package com.devsparle.sporteuroapp.presentation.components
+package com.devsparle.sporteuroapp.presentation.screens.feed_home.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.LocalContext
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.devsparle.sporteuroapp.domain.model.FeedItem
+import com.devsparle.sporteuroapp.presentation.components.ArticleItem
 
 @Composable
 fun StoryItem(

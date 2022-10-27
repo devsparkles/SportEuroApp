@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.media3.common.Player
-import com.devsparle.sporteuroapp.di.annotations.DefaultDispatcher
 import com.devsparle.sporteuroapp.di.annotations.IoDispatcher
 import com.devsparle.sporteuroapp.domain.model.FeedItem
 import com.devsparle.sporteuroapp.domain.usecases.GetFeedUseCase
@@ -17,10 +15,8 @@ import javax.inject.Inject
 @HiltViewModel
 class FeedViewModel @Inject constructor(
     val getFeedUseCase: GetFeedUseCase,
-    val player: Player,
-    @IoDispatcher private val ioDispatcher : CoroutineDispatcher,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) : ViewModel() {
-
 
     val _feedItems: MutableLiveData<MutableList<FeedItem>> =
         MutableLiveData(mutableListOf<FeedItem>())
@@ -29,9 +25,7 @@ class FeedViewModel @Inject constructor(
     val _loading: MutableLiveData<Boolean> = MutableLiveData(true)
     val loading: LiveData<Boolean> = _loading
 
-
     init {
-        player.prepare()
         retrieveFeed()
     }
 
@@ -42,10 +36,5 @@ class FeedViewModel @Inject constructor(
             _feedItems.postValue(feed)
             _loading.postValue(false)
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        player.release()
     }
 }

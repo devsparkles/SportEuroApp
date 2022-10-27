@@ -1,8 +1,9 @@
 package com.devsparle.sporteuroapp.di
 
+
 import android.app.Application
-import androidx.media3.common.Player
-import androidx.media3.exoplayer.ExoPlayer
+import com.google.android.exoplayer2.C
+import com.google.android.exoplayer2.ExoPlayer
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,9 +16,10 @@ object VideoPlayerModule {
 
     @Provides
     @ViewModelScoped
-    fun provideVideoPlayer(app: Application): Player {
-        return ExoPlayer.Builder(app)
-            .build()
+    fun provideVideoPlayer(app: Application): ExoPlayer {
+        return  ExoPlayer.Builder(app).build().apply {
+            videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING
+        }
     }
 
 }

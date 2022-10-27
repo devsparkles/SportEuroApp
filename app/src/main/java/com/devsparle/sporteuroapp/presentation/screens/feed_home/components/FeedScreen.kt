@@ -1,4 +1,4 @@
-package com.devsparle.sporteuroapp.presentation.components
+package com.devsparle.sporteuroapp.presentation.screens.feed_home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -19,9 +19,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.devsparle.sporteuroapp.R
 import com.devsparle.sporteuroapp.domain.model.FeedItem
+import com.devsparle.sporteuroapp.presentation.components.VideoItem
 import com.devsparle.sporteuroapp.presentation.screens.feed_home.FeedViewModel
 import com.devsparle.sporteuroapp.ui.theme.DarkBlue
-import com.devsparle.sporteuroapp.utils.LogApp
 
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -29,7 +29,7 @@ import com.devsparle.sporteuroapp.utils.LogApp
 fun FeedScreen(
     viewModel: FeedViewModel = hiltViewModel(),
     onStoryClicked: (FeedItem.Story) -> Unit,
-    onVideoClicked: (FeedItem.Video) -> Unit
+    onVideoClicked: (String) -> Unit
 ) {
 
     val loading by viewModel.loading.observeAsState()
@@ -46,7 +46,7 @@ fun FeedScreen(
 
                 .fillMaxSize()
         ) {
-        HeaderBar()
+            HeaderBar()
             if (loading != null && loading == true) {
                 Box(
                     modifier = Modifier
@@ -66,8 +66,8 @@ fun FeedScreen(
                     onStoryClicked = {
                         onStoryClicked(it)
                     },
-                    onVideoClicked = {
-
+                    onVideoClicked = { e ->
+                        onVideoClicked(e)
                     }
                 )
             }
