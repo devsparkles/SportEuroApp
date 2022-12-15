@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.devsparle.sporteuroapp.R
 import com.devsparle.sporteuroapp.domain.model.FeedItem
-import com.devsparle.sporteuroapp.presentation.components.VideoItem
 import com.devsparle.sporteuroapp.presentation.screens.feed_home.FeedViewModel
 import com.devsparle.sporteuroapp.ui.theme.DarkBlue
 

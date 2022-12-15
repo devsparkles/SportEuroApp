@@ -23,7 +23,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintLayoutScope
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.devsparle.sporteuroapp.presentation.components.TagChip
+import com.devsparle.sporteuroapp.presentation.screens.feed_home.components.TagChip
 import com.devsparle.sporteuroapp.R
 @Composable
 fun Details(

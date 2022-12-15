@@ -9,7 +9,6 @@ import androidx.compose.ui.platform.LocalContext
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.devsparle.sporteuroapp.domain.model.FeedItem
-import com.devsparle.sporteuroapp.presentation.components.ArticleItem
 
 @Composable
 fun StoryItem(

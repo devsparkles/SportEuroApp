@@ -1,4 +1,4 @@
-package com.devsparle.sporteuroapp.presentation.components
+package com.devsparle.sporteuroapp.presentation.screens.feed_home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
